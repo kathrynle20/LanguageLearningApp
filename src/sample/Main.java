@@ -37,20 +37,20 @@ public class Main extends Application {
         primaryStage.setTitle("Assignments Page");
         GridPane grid = new GridPane();
         grid.setVgap(10.0);
-        grid.setPadding(new Insets(25, 25, 25, 25));
+        grid.setPadding(new Insets(30, 30, 30, 30));
 
-        Scene scene = new Scene(grid, 500, 550);
+        Scene scene = new Scene(grid, 550, 700);
         primaryStage.setScene(scene);
 
         Text scenetitle = new Text("Assignments");
-        scenetitle.setFont(Font.font("Times New Roman", FontWeight.NORMAL, 20));
+        scenetitle.setFont(Font.font("Times New Roman", FontWeight.NORMAL, 35));
         grid.add(scenetitle, 0, 0, 1, 1);
 
 
         int amountOfAssignments = 5;
         for (int assignmentNumber = 1; assignmentNumber <= amountOfAssignments; assignmentNumber++) {
-            int columnIndex = 5;
-            int rowIndex = assignmentNumber * 2;
+            int columnIndex = 6;
+            int rowIndex = assignmentNumber * 3;
 
             Label assignment = new Label("Assignment #" + assignmentNumber + ":");
             assignment.setFont((Font.font("Cambria", 25)));
@@ -65,24 +65,23 @@ public class Main extends Application {
 
 
             //ADD BUTTON TO INDICATE ASSIGNMENT IS OPENED
-            Button assignmentButton = new Button();
+            Button assignmentButton = new Button("OPEN");
+            Label assignmentButtonPressed = new Label("Your assignment is: ");
+            assignmentButton.setOnAction(new EventHandler<ActionEvent>() {
+                @Override public void handle(ActionEvent e) {
+                    grid.add(assignmentButtonPressed, 7,rowIndex + 2);
+                }
+            });
+            grid.add(assignmentButton, 6, rowIndex + 2);
 
             //Try to add a border
 
             //Try to add an image
-            Image assignmentImage = new Image("https://www.learnupon.com/wp-content/uploads/assignments720.png", 100,100, true,false);
-            grid.add(new ImageView(assignmentImage), 0, rowIndex);
+            Image assignmentImage = new Image("https://www.learnupon.com/wp-content/uploads/assignments720.png", 150,100, true,true);
+            grid.add(new ImageView(assignmentImage), 0, rowIndex, 1,3);
+            //Image assignmentImage = new Image("https://i.dlpng.com/static/png/1467425_thumb.png", 100,100, false,false);
+            //grid.add(new ImageView(assignmentImage), 0, rowIndex, 1,3);
 
-
-
-
-
-
-
-
-
-
-            //add a due date using SimpleDataFormat
 
 
         }
