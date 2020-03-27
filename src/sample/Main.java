@@ -63,7 +63,6 @@ public class Main extends Application {
             Label assignmentButtonPressed = new Label("Your assignment is: ");
             assignmentButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override public void handle(MouseEvent e) {
-                    System.out.println("Your assignment is: ");
                     grid.add(assignmentButtonPressed, 7,rowIndex + 2);
                 }
             });
